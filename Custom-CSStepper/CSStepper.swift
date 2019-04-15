@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable   // 미리보기 형태로 처리해 달라고 시스템에 요청하는 역할
 public class CSStepper: UIView {
     
     public var leftBtn = UIButton(type: .system)       // 왼쪽 버튼
