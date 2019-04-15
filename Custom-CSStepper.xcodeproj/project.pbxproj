@@ -12,6 +12,7 @@
 		4E18CCBA22644EDE0091F9E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E18CCB822644EDE0091F9E0 /* Main.storyboard */; };
 		4E18CCBC22644EDF0091F9E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E18CCBB22644EDF0091F9E0 /* Assets.xcassets */; };
 		4E18CCBF22644EDF0091F9E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E18CCBD22644EDF0091F9E0 /* LaunchScreen.storyboard */; };
+		4E18CCC722644F6B0091F9E0 /* CSStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E18CCC622644F6B0091F9E0 /* CSStepper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		4E18CCBB22644EDF0091F9E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E18CCBE22644EDF0091F9E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E18CCC022644EDF0091F9E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E18CCC622644F6B0091F9E0 /* CSStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSStepper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				4E18CCB422644EDE0091F9E0 /* AppDelegate.swift */,
 				4E18CCB622644EDE0091F9E0 /* ViewController.swift */,
+				4E18CCC622644F6B0091F9E0 /* CSStepper.swift */,
 				4E18CCB822644EDE0091F9E0 /* Main.storyboard */,
 				4E18CCBB22644EDF0091F9E0 /* Assets.xcassets */,
 				4E18CCBD22644EDF0091F9E0 /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E18CCC722644F6B0091F9E0 /* CSStepper.swift in Sources */,
 				4E18CCB722644EDE0091F9E0 /* ViewController.swift in Sources */,
 				4E18CCB522644EDE0091F9E0 /* AppDelegate.swift in Sources */,
 			);
@@ -291,7 +295,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.seongho.Custom-CSStepper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,7 +312,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.seongho.Custom-CSStepper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
