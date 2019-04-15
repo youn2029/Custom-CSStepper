@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         // 변경 가능한 속성
         stepper.bgColor = .red
         stepper.stepValue = 10
+        stepper.centerLabel.textColor = .white
         
         // view에 추가
         self.view.addSubview(stepper)

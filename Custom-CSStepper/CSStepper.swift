@@ -51,6 +51,14 @@ public class CSStepper: UIControl {
         }
     }
     
+    // 가운데 텍스트 색상
+    @IBInspectable
+    public var textColor: UIColor = UIColor.black {
+        didSet{
+            self.centerLabel.textColor = textColor
+        }
+    }
+    
     // 스테퍼의 증감값
     @IBInspectable
     public var stepValue: Int = 1
@@ -97,6 +105,7 @@ public class CSStepper: UIControl {
         self.centerLabel.font = .systemFont(ofSize: 16)
         self.centerLabel.textAlignment = .center
         self.centerLabel.backgroundColor = bgColor
+        self.centerLabel.textColor = textColor
         self.centerLabel.layer.borderWidth = borderWidth
         self.centerLabel.layer.borderColor = boardColor
         
