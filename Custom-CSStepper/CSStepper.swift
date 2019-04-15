@@ -14,7 +14,11 @@ public class CSStepper: UIView {
     public var leftBtn = UIButton(type: .system)       // 왼쪽 버튼
     public var rightBtn = UIButton(type: .system)      // 오른쪽 버튼
     public var centerLabel = UILabel()                 // 가운데 레이블
-    public var value: Int = 0                          // 스테퍼의 현재값을 저장할 변수
+    public var value: Int = 0 {                        // 스테퍼의 현재값을 저장할 변수
+        didSet {    // 프로퍼티의 값이 변경되면 자동을 호출
+            self.centerLabel.text = String(value)
+        }
+    }
 
     // 스토리보드에서 호출할 초기화 메소드
     public required init?(coder aDecoder: NSCoder) {
@@ -57,9 +61,14 @@ public class CSStepper: UIView {
         self.centerLabel.layer.borderWidth = borderWidth
         self.centerLabel.layer.borderColor = boardColor
         
+        // 뷰에 추가
         self.addSubview(self.leftBtn)
         self.addSubview(self.rightBtn)
         self.addSubview(self.centerLabel)
+        
+        // 버튼에 메소드를 연결
+        self.leftBtn.addTarget(self, action: #selector(valueChage(_:)), for: .touchUpInside)
+        self.rightBtn.addTarget(self, action: #selector(valueChage(_:)), for: .touchUpInside)
     }
     
     // 크기가 변경될 때마다 호추되는 메소드
@@ -77,6 +86,15 @@ public class CSStepper: UIView {
         self.centerLabel.frame = CGRect(x: btnWidth, y: 0, width: labelWidth, height: self.frame.height)
         self.rightBtn.frame = CGRect(x: self.frame.width - btnWidth, y: 0, width: btnWidth, height: btnWidth)
         
+    }
+    
+    // 버튼을 클릭했을때 값을 변경하는 메소드
+    @objc public func valueChage(_ sender: UIButton){
+        if (self.value == 0 && sender.tag == -1) || (self.value == 100 && sender.tag == 1) {
+            return
+        }else {
+            self.value += sender.tag            
+        }
     }
 
 }
