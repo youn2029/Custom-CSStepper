@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable   // 미리보기 형태로 처리해 달라고 시스템에 요청하는 역할
-public class CSStepper: UIView {
+public class CSStepper: UIControl {
     
     public var leftBtn = UIButton(type: .system)       // 왼쪽 버튼
     public var rightBtn = UIButton(type: .system)      // 오른쪽 버튼
@@ -20,6 +20,10 @@ public class CSStepper: UIView {
     public var value: Int = 0 {
         didSet {    // 프로퍼티의 값이 변경되면 자동을 호출
             self.centerLabel.text = String(value)
+            
+            // 이 클래스를 사용하는 객체들에게 valueChanged 이벤트 신호를 보내준다
+            // value값이 변경되면 valueChanged 이벤트를 발생
+            self.sendActions(for: .valueChanged)
         }
     }
     
@@ -125,17 +129,17 @@ public class CSStepper: UIView {
     
     // 버튼을 클릭했을때 값을 변경하는 메소드
     @objc public func valueChage(_ sender: UIButton){
-        
+
         // 스테퍼의 버튼을 클릭했을 때 변경될 값
         let sum = self.value + sender.tag * self.stepValue
-        
+
         // 변경될 값이 최소값보다 작으면
         if sum < self.minimumValue || sum > self.maximumValue {
             return
         }
-        
+
         self.value += sender.tag * self.stepValue
-        
+
     }
 
 }

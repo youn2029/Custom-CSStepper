@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uTM-Jw-Mzx" customClass="CSStepper" customModule="Custom_CSStepper" customModuleProvider="target">
-                                <rect key="frame" x="67" y="288" width="240" height="50"/>
+                                <rect key="frame" x="54" y="291" width="266" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -27,16 +27,16 @@
                                         <integer key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
-                                        <integer key="value" value="100"/>
+                                        <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
                                         <color key="value" red="0.1770053211" green="0.37441694800000003" blue="0.43942338199999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
-                                        <integer key="value" value="0"/>
+                                        <integer key="value" value="100"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="leftTitle" value="Low"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="rightTitle" value="High"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="leftTitle" value="Down"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="rightTitle" value="Up"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
