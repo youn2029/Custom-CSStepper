@@ -60,5 +60,22 @@ public class CSStepper: UIView {
         self.addSubview(self.rightBtn)
         self.addSubview(self.centerLabel)
     }
+    
+    // 크기가 변경될 때마다 호추되는 메소드
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // 버튼의 너비 = 뷰의 높이 (정사각형)
+        let btnWidth = self.frame.height
+        
+        // 레이블의 너비 = 뷰에서 버튼 2개를 뺀 나머지
+        let labelWidth = self.frame.width - (btnWidth * 2)
+        
+        // 각 각의 객체를 배치
+        self.leftBtn.frame = CGRect(x: 0, y: 0, width: btnWidth, height: btnWidth)
+        self.centerLabel.frame = CGRect(x: btnWidth, y: 0, width: labelWidth, height: self.frame.height)
+        self.rightBtn.frame = CGRect(x: self.frame.width - btnWidth, y: 0, width: btnWidth, height: btnWidth)
+        
+    }
 
 }
