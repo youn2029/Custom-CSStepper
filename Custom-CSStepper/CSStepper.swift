@@ -14,11 +14,46 @@ public class CSStepper: UIView {
     public var leftBtn = UIButton(type: .system)       // 왼쪽 버튼
     public var rightBtn = UIButton(type: .system)      // 오른쪽 버튼
     public var centerLabel = UILabel()                 // 가운데 레이블
-    public var value: Int = 0 {                        // 스테퍼의 현재값을 저장할 변수
+    
+    // 스테퍼의 현재값을 저장할 변수
+    @IBInspectable  // 인터페이스 빌더에서도 설정 가능하게 해주는 어트리뷰트
+    public var value: Int = 0 {
         didSet {    // 프로퍼티의 값이 변경되면 자동을 호출
             self.centerLabel.text = String(value)
         }
     }
+    
+    // 좌측 버튼의 타이틀 변경 속성
+    @IBInspectable
+    public var leftTitle: String = "↓" {
+        didSet{
+            self.leftBtn.setTitle(leftTitle, for: .normal)
+        }
+    }
+    
+    // 우측 버튼의 타이틀 변경 속성
+    @IBInspectable
+    public var rightTitle: String = "↑" {
+        didSet{
+            self.rightBtn.setTitle(rightTitle, for: .normal)
+        }
+    }
+    
+    // 가운데 배경색 변경 속성
+    @IBInspectable
+    public var bgColor: UIColor = UIColor.cyan {
+        didSet {
+            self.centerLabel.backgroundColor = bgColor
+        }
+    }
+    
+    // 스테퍼의 증감값
+    @IBInspectable
+    public var stepValue: Int = 1
+    
+    // 스테퍼의 최소값, 최대값
+    @IBInspectable public var minimumValue: Int = -100
+    @IBInspectable public var maximumValue: Int = 100
 
     // 스토리보드에서 호출할 초기화 메소드
     public required init?(coder aDecoder: NSCoder) {
@@ -41,14 +76,14 @@ public class CSStepper: UIView {
         
         // 좌측 다운 버튼 속성 설정
         self.leftBtn.tag = -1       // 태그값에 -1을 부여
-        self.leftBtn.setTitle("↓", for: .normal)
+        self.leftBtn.setTitle(self.leftTitle, for: .normal)
         self.leftBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         self.leftBtn.layer.borderWidth = borderWidth
         self.leftBtn.layer.borderColor = boardColor
         
         // 우측 업 버튼 속성 설정
         self.rightBtn.tag = 1       // 태그값에 1을 부여
-        self.rightBtn.setTitle("↑", for: .normal)
+        self.rightBtn.setTitle(self.rightTitle, for: .normal)
         self.rightBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         self.rightBtn.layer.borderWidth = borderWidth
         self.rightBtn.layer.borderColor = boardColor
@@ -57,7 +92,7 @@ public class CSStepper: UIView {
         self.centerLabel.text = String(value)       // 현재값을 String으로 변환하여 표시
         self.centerLabel.font = .systemFont(ofSize: 16)
         self.centerLabel.textAlignment = .center
-        self.centerLabel.backgroundColor = .cyan
+        self.centerLabel.backgroundColor = bgColor
         self.centerLabel.layer.borderWidth = borderWidth
         self.centerLabel.layer.borderColor = boardColor
         
@@ -90,11 +125,17 @@ public class CSStepper: UIView {
     
     // 버튼을 클릭했을때 값을 변경하는 메소드
     @objc public func valueChage(_ sender: UIButton){
-        if (self.value == 0 && sender.tag == -1) || (self.value == 100 && sender.tag == 1) {
+        
+        // 스테퍼의 버튼을 클릭했을 때 변경될 값
+        let sum = self.value + sender.tag * self.stepValue
+        
+        // 변경될 값이 최소값보다 작으면
+        if sum < self.minimumValue || sum > self.maximumValue {
             return
-        }else {
-            self.value += sender.tag            
         }
+        
+        self.value += sender.tag * self.stepValue
+        
     }
 
 }
